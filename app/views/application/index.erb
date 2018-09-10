@@ -1,0 +1,29 @@
+<h1>Search</h1>
+<h3>Users</h3>
+<%= form_for :search do |f| %>
+  <%= f.hidden_field :model, value: 'user' %>
+  <%= f.select :user_column, User.column_names %>
+  <%= f.search_field :user_q %>
+
+  <%= f.submit '🔍 Users' %>
+<% end %>
+<br>
+<h3>Organizations</h3>
+<%= form_for :search do |f| %>
+  <%= f.hidden_field :model, value: 'organization' %>
+  <%= f.select :organization_column, Organization.column_names %>
+  <%= f.search_field :organization_q %>
+
+  <%= f.submit '🔍 Organizations' %>
+<% end %>
+<br>
+<h3>Tickets</h3>
+<%= form_for :search do |f| %>
+  <%= f.hidden_field :model, value: 'ticket' %>
+  <%= f.select :ticket_column, Ticket.column_names %>
+  <%= f.search_field :ticket_q %>
+
+  <%= f.submit '🔍 Tickets' %>
+<% end %>
+<br>
+<%= render 'results' %>

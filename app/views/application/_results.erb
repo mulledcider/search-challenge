@@ -1,0 +1,30 @@
+<% if @results %>
+  <h2><%= "#{@results.count} #{'result'.pluralize(@results.count)}" %></h3>
+<% end %>
+
+<%= @results&.each do |r| %>
+  <% if r.is_a? User %>
+    <h3>User</h3>
+    <%= render 'result', :object => r %>
+    <h4>Organization</h4>
+    <%= render 'result', :object => r.organization %>
+  <% elsif r.is_a? Organization %> 
+    <h3>Organization</h3>
+    <%= render 'result', :object => r %>
+    <%
+    # Assuming here that there is no desire to display 
+    # the tickets or users of an organization since this
+    # list might be very long.
+    %>
+  <% elsif r.is_a? Ticket %>
+    <h3>Ticket</h3>
+    <%= render 'result', :object => r %>
+    <h4>Submitter</h4>
+    <%= render 'result', :object => r.submitter %>
+    <h4>Assignee</h4>
+    <%= render 'result', :object => r.assignee %>
+    <h4>Organization</h4>
+    <%= render 'result', :object => r.organization %>
+  <% end %>
+  <hr>
+<% end %>
