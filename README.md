@@ -1,24 +1,18 @@
-# README
+# Search Challenge 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Requirements
 
-Things you may want to cover:
+Ruby 2.5.1, Bundler
 
-* Ruby version
+* Setup
 
-* System dependencies
+1. Install dependencies with `bundle install`.
+2. Set up the database with `rake db:setup`.
+3. Run the application with `rails s`.
 
-* Configuration
+* Running tests
 
-* Database creation
+Tests may be run with `rake test` for unit tests and `rake test:system` for acceptance tests.
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -8,11 +8,12 @@ class ApplicationController < ActionController::Base
         :organization_q, :ticket_q, :model
       )
       model = search[:model]
+      term = (search[:is_empty] ? nil : search["#{model}_q"])
 
       @results = model
                   &.capitalize
                   &.constantize
-                  &.where(search["#{model}_column"] => search["#{model}_q"])
+                  &.where(search["#{model}_column"] => term)
     end
   end
 end
